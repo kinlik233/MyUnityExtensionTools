@@ -8,7 +8,7 @@ using System.Threading;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Main
+namespace Common
 {
     ///<summary>
     ///通过tcp协议发送消息

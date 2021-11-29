@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,13 +9,6 @@ namespace Common
     /// </summary>
     public class MonoSingleton<T> : MonoBehaviour where T : MonoSingleton<T>
     {
-        //public static T Instance { get; private set; }
-        //private void Awake()
-        //{//this  父类型引用 指向 子类对象
-        //    Instance = this as T ;
-        //}
-
-
         //T 表示子类类型
         //按需加载
         private static T instance;
@@ -35,7 +28,7 @@ namespace Common
                     }
                     else
                     { 
-                          instance.Init();
+                          instance.Init();                        
                     }
                 }
                 return instance;

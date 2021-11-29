@@ -6,10 +6,10 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
-using UIWidgetsSamples;
+//using UIWidgetsSamples;
 using UnityEngine;
 
-namespace Main
+namespace Common
 {
     ///<summary>
     ///通过tcp协议发送消息
@@ -20,7 +20,7 @@ namespace Main
         public int port;
         private TcpListener listener;
         private Thread receiveThread;
-        private ChatView chatView;
+        //private ChatView chatView;
         //创建监听器
         private void Start()
         {
@@ -29,7 +29,7 @@ namespace Main
             listener.Start();
             receiveThread = new Thread(ReceiveChatMessage);
             receiveThread.Start();
-            chatView = transform.FindChildByName("ChatView").GetComponent<ChatView>();
+            //chatView = transform.FindChildByName("ChatView").GetComponent<ChatView>();
         }
         //接受消息
         private void ReceiveChatMessage()
@@ -52,23 +52,23 @@ namespace Main
                     //如果需要监听多个客户端连接，则需要再开启线程                 
                     string msg = Encoding.Unicode.GetString(buffer, 0, count);
                     if (msg == "Quit") break;
-                    ThreadCrossHelper.Instance.ExecuteOnMainThread(() => { DisplayChatMessage(msg); });
+                    //ThreadCrossHelper.Instance.ExecuteOnMainThread(() => { DisplayChatMessage(msg); });
                 }
             }
         }
-        private void DisplayChatMessage(string msg)
-        {
-            ChatLine line = new ChatLine()
-            {
-                UserName = "kinlik",
-                Message = msg,
-                Time = DateTime.Now,
-                Type = ChatLineType.User,
-            };
+        //private void DisplayChatMessage(string msg)
+        //{
+        //    ChatLine line = new ChatLine()
+        //    {
+        //        UserName = "kinlik",
+        //        Message = msg,
+        //        Time = DateTime.Now,
+        //        Type = ChatLineType.User,
+        //    };
 
-            chatView.DataSource.Add(line);
+        //    chatView.DataSource.Add(line);
 
-        }
+        //}
         //关闭连接
         private void OnApplicationQuit()
         {
