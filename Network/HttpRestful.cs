@@ -39,7 +39,7 @@ namespace Common
                 yield return request.SendWebRequest();
 
                 string resstr = "";
-                if (request.isNetworkError || request.isHttpError)
+                if (request.result == UnityWebRequest.Result.ConnectionError|| request.result == UnityWebRequest.Result.ProtocolError)
                 {
                     resstr = request.error;
                 }
@@ -50,7 +50,7 @@ namespace Common
 
                 if (action != null)
                 {
-                    action(request.isHttpError, resstr, name);
+                    action(request.result == UnityWebRequest.Result.ProtocolError, resstr, name);
                 }
             }
         }
@@ -75,7 +75,7 @@ namespace Common
                 yield return request.SendWebRequest();
 
                 string resstr = "";
-                if (request.isNetworkError || request.isHttpError)
+                if (request.result == UnityWebRequest.Result.ConnectionError || request.result == UnityWebRequest.Result.ProtocolError)
                 {
                     resstr = request.error;
                 }
@@ -85,7 +85,7 @@ namespace Common
                 }
                 if (action != null)
                 {
-                    action(request.isHttpError, resstr, name);
+                    action(request.result == UnityWebRequest.Result.ProtocolError, resstr, name);
                 }
             }
         }
@@ -114,7 +114,7 @@ namespace Common
                 yield return request.SendWebRequest();
 
                 string resstr = "";
-                if (request.isNetworkError || request.isHttpError)
+                if (request.result == UnityWebRequest.Result.ConnectionError || request.result == UnityWebRequest.Result.ProtocolError)
                 {
                     resstr = request.error;
                 }
@@ -124,7 +124,7 @@ namespace Common
                 }
                 if (action != null)
                 {
-                    action(request.isHttpError, resstr, name);
+                    action(request.result == UnityWebRequest.Result.ProtocolError, resstr, name);
                 }
             }
         }

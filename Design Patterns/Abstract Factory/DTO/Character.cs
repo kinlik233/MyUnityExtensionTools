@@ -4,6 +4,7 @@ using System.Text;
 
 namespace Common
 {
+    //角色数据
     public  class Character
     {
     }

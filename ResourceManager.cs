@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.Networking;
 
 namespace Common
 {
@@ -30,12 +31,16 @@ namespace Common
             if (Application.platform != RuntimePlatform.Android)
             {
                 configPath = "file://" + configPath;
-            } 
+            }
 
-            WWW www = new WWW(configPath);
+            UnityWebRequest request = UnityWebRequest.Get(configPath);
+            request.SendWebRequest();
             while (true)
             {
-                if(www.isDone)  return www.text;
+                if (request.downloadHandler.isDone)//是否读取完数据
+                {
+                    return request.downloadHandler.text;
+                }
             }
         }
 

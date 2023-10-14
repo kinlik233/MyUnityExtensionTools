@@ -7,13 +7,13 @@ using System;
 
 namespace Common
 {
-    public class SqlManager : MonoBehaviour
+    public class MySqlSqlManager : MonoBehaviour
     {
-        SqlAccess sqlaccess;
+        MySqlAccess sqlaccess;
 
         private void Start()
         {
-            sqlaccess = new SqlAccess();
+            sqlaccess = new MySqlAccess();
             OpenUserData();
             SelectPersonalData("select * from personal_data");
             CloseMysql();

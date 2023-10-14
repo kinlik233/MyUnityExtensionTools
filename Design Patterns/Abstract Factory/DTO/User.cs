@@ -4,6 +4,7 @@ using System.Text;
 
 namespace Common
 {
+    //用户数据
     class User
     {
     }

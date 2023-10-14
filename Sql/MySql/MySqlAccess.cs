@@ -8,7 +8,7 @@ using System.Data;
 
 namespace Common
 {
-    public class SqlAccess
+    public class MySqlAccess
     {
         public MySqlConnection mysqlconn;
 

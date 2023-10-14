@@ -5,7 +5,9 @@ using System.Text;
 namespace Common
 {
     /// <summary>
-    /// 数据访问对象 工厂
+    /// 数据访问对象 抽象工厂
+    /// 不关注数据的创建过程，方便修改具体的子类创建工厂
+    /// 无法修改工厂要创建的数据种类
     /// </summary>
     abstract class DaoFactory
     {
@@ -30,8 +32,9 @@ namespace Common
                 return instance;
             }
         }
+        //用户数据抽象
         public abstract IUserDao UserDao { get; }
-
+        //角色数据抽象
         public abstract ICharacterDao CharacterDao { get; }
 
     }
