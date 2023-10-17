@@ -1,4 +1,4 @@
-using Common;
+using MyUnityExtensionTools;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -9,7 +9,7 @@ using System.Threading;
 //using UIWidgetsSamples;
 using UnityEngine;
 
-namespace Common
+namespace MyUnityExtensionTools
 {
     ///<summary>
     ///通过tcp协议发送消息

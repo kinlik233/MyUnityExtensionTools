@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Common
+namespace MyUnityExtensionTools
 {
 	/// <summary>
 	/// 变换组件助手类

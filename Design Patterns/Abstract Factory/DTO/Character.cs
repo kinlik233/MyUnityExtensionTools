@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Common
+namespace MyUnityExtensionTools
 {
     //角色数据
     public  class Character

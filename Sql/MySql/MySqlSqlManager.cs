@@ -5,7 +5,7 @@ using System.IO;
 using System.Data;
 using System;
 
-namespace Common
+namespace MyUnityExtensionTools
 {
     public class MySqlSqlManager : MonoBehaviour
     {

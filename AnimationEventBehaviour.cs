@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Common
+namespace MyUnityExtensionTools
 {
 	/// <summary>
 	/// 动画事件行为

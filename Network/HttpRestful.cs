@@ -5,7 +5,7 @@ using System.Text;
 using UnityEngine;
 using UnityEngine.Networking;
 
-namespace Common
+namespace MyUnityExtensionTools
 {
     public class HttpRestful : MonoBehaviour
     {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Common
+namespace MyUnityExtensionTools
 {
 	/// <summary>
 	/// 游戏对象池

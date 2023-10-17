@@ -11,7 +11,7 @@ using UnityEngine;
       1. 扩展方法必须在非泛型的静态类中。
       2. 使用this关键字修改第一个参数
      */
-namespace Common
+namespace MyUnityExtensionTools
 {
     /// <summary>
     /// 数组助手类：封装开发中对数组的常用操作
@@ -24,7 +24,7 @@ namespace Common
         /// <typeparam name="T">对象数组的元素类型 例如：Enemy</typeparam>
         /// <typeparam name="Q">条件的类型 例如：int</typeparam>
         /// <param name="array">对象数组 例如：Enemy[]</param>
-        /// <param name="condition">条件 例如：HP</param>
+        /// <param name="condition">条件 例如：enemy=>enemy.Hp</param>
         /// <returns></returns>
         public static T GetMax<T, Q>(this T[] array, Func<T, Q> condition) where Q : IComparable
         {
@@ -47,7 +47,7 @@ namespace Common
         /// <typeparam name="T">对象数组的元素类型 例如：Enemy</typeparam>
         /// <typeparam name="Q">条件的类型 例如：int</typeparam>
         /// <param name="array">对象数组 例如：Enemy[]</param>
-        /// <param name="condition">条件 例如：HP</param>
+        /// <param name="condition">条件 例如：enemy=>enemy.Hp</param>
         /// <returns></returns>
         public static T GetMin<T, Q>(this T[] array, Func<T, Q> condition) where Q : IComparable
         {
@@ -109,20 +109,20 @@ namespace Common
         /// <typeparam name="T">对象数组的元素类型 例如：Enemy</typeparam>
         /// <typeparam name="Q">条件的类型 例如：int</typeparam>
         /// <param name="array">对象数组 例如：Enemy[]</param>
-        /// <param name="condition">条件 例如：HP</param>
-        public static void OrderBy<T, Q>(this T[] array, Func<T, Q> condition) where Q : IComparable
+        /// <param name="condition">条件 例如：enemy=>enemy.Hp</param>
+        public static void OrderByAscending<T, Q>(this T[] array, Func<T, Q> condition) where Q : IComparable
         {
-            for (int r = 0; r < array.Length - 1; r++)
+            for (int i = 0; i < array.Length - 1; i++)
             {
-                for (int c = r + 1; c < array.Length; c++)
+                for (int j = i + 1; j < array.Length; j++)
                 {
                     //if (array[r].HP > array[c].HP)
                     //if(condition(array[r]) > condition(array[c]))
-                    if (condition(array[r]).CompareTo(condition(array[c])) > 0)
+                    if (condition(array[i]).CompareTo(condition(array[j])) > 0)
                     {
-                        var temp = array[r];
-                        array[r] = array[c];
-                        array[c] = temp;
+                        var temp = array[i];
+                        array[i] = array[j];
+                        array[j] = temp;
                     }
                 }
             }
@@ -135,24 +135,31 @@ namespace Common
         /// <typeparam name="T">对象数组的元素类型 例如：Enemy</typeparam>
         /// <typeparam name="Q">条件的类型 例如：int</typeparam>
         /// <param name="array">对象数组 例如：Enemy[]</param>
-        /// <param name="condition">条件 例如：HP</param>
+        /// <param name="condition">条件 例如：enemy=>enemy.Hp</param>
         public static void OrderByDescending<T, Q>(this T[] array, Func<T, Q> condition) where Q : IComparable
         {
-            for (int r = 0; r < array.Length - 1; r++)
+            for (int i = 0; i < array.Length - 1; i++)
             {
-                for (int c = r + 1; c < array.Length; c++)
+                for (int j = i + 1; j < array.Length; j++)
                 {
-                    if (condition(array[r]).CompareTo(condition(array[c])) < 0)
+                    if (condition(array[i]).CompareTo(condition(array[j])) < 0)
                     {
-                        var temp = array[r];
-                        array[r] = array[c];
-                        array[c] = temp;
+                        var temp = array[i];
+                        array[i] = array[j];
+                        array[j] = temp;
                     }
                 }
             }
         }
-
-        //GameObject[]          Transform[]       Enemy[]  ……
+        
+        /// <summary>
+        /// 选择对象数组元素的目标成员，返回这个成员数组
+        /// </summary>
+        /// <param name="array">对象数组 例如：GameObject[]</param>
+        /// <param name="handler">条件 例如：g => g.transform</param>
+        /// <typeparam name="T">对象数组的元素类型 例如：GameObject</typeparam>
+        /// <typeparam name="Q">元素中目标成员的类型 例如：Transform</typeparam>
+        /// <returns></returns>
         public static Q[] Select<T,Q>(this T[] array,Func<T,Q> handler)
         {
             Q[] result = new Q[array.Length];

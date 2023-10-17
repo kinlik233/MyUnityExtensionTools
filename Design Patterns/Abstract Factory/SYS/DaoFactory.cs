@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Common
+namespace MyUnityExtensionTools
 {
     /// <summary>
     /// 数据访问对象 抽象工厂

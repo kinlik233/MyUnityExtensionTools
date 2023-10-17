@@ -4,7 +4,7 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.Networking;
 
-namespace Common
+namespace MyUnityExtensionTools
 {
 	/// <summary>
 	/// 资源管理器
